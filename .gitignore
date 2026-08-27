@@ -1,0 +1,69 @@
+# ==========================================
+# 1. Dependency Directories (Root and Packages)
+# ==========================================
+node_modules/
+bower_components/
+jspm_packages/
+.pnpm-store/
+
+# ==========================================
+# 2. Build Outputs and Bundles
+# ==========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.docusaurus/
+.cache/
+*.tsbuildinfo
+
+# ==========================================
+# 3. Environment Variables and Secrets
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env.bak
+.gitencrypt/
+
+# ==========================================
+# 4. Logs and Diagnostic Files
+# ==========================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# 5. Testing and Code Coverage
+# ==========================================
+coverage/
+.nyc_output/
+.jest/
+cypress/videos/
+cypress/screenshots/
+.playwright/
+
+# ==========================================
+# 6. IDEs, Editors, and OS Files
+# ==========================================
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
