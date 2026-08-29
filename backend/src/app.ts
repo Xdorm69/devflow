@@ -6,6 +6,7 @@ import morgan from "morgan";
 import errorMiddleware from "./middlewares/errorMiddleware.ts";
 import authRouter from "./modules/auth/auth.router.ts";
 import envConfig from "./configs/config.ts";
+import workspaceRouter from "./modules/workspace/workspace.router.ts";
 
 const app = express();
 
@@ -27,7 +28,8 @@ app.use(cookieParser());
 app.use(morgan(envConfig.NODE_ENV === "production" ? "combined" : "dev"));
 
 // API Routes
-app.use("/api/v1/auth", authRouter)
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/workspace", workspaceRouter);
 
 app.use(errorMiddleware);
 
