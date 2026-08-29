@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts",
+    "type-check": "tsc",
+    "build": "esbuild src/server.ts --bundle --platform=node --target=node20 --outfile=dist/server.js",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +15,23 @@
   "license": "ISC",
   "packageManager": "pnpm@10.29.1",
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "morgan": "^1.11.0",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "zod": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^26.4.0",
+    "esbuild": "^0.28.2",
+    "prisma": "^7.10.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
   }
 }
