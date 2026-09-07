@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "ignoreDeprecations": "6.0",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "allowJs": true /* CRITICAL: Allows keeping existing .js files */,
+    "checkJs": false /* Turn off to bypass type checking legacy .js */,
+    "strict": true /* Enables strict type checking rules */,
+    "esModuleInterop": true /* Enables cleaner imports for CommonJS modules */,
+    "skipLibCheck": true /* Speeds up compilation by skipping library tests */,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "include": ["src/**/*"]
+}
