@@ -9,7 +9,7 @@ import { CreateWorkspaceInput, UpdateWorkspaceInput } from "./workspace.validato
 
 export class WorkspaceRepository {
   //workspace
-  async create(data: CreateWorkspaceInput): Promise<Workspace> {
+  async create(data: CreateWorkspaceInput, ownerId: string): Promise<Workspace> {
     const workspace =  await prisma.workspace.create({
       data: {
         name: data.name,
@@ -17,14 +17,14 @@ export class WorkspaceRepository {
         description: data.description || null,
         owner: {
           connect: {
-            id: data.ownerId,
+            id: ownerId,
           },
         },
       },
     });
     
     //making an owner entry
-    await this.addMember(workspace.id, data.ownerId, WorkspaceRole.OWNER);
+    await this.addMember(workspace.id, ownerId, WorkspaceRole.OWNER);
 
     return workspace;
   }

@@ -36,14 +36,17 @@ workspaceRouter.patch(
   "/:id",
   authenticate,
   validate(updateWorkspaceSchema),
-  requireWorkspaceRole(["OWNER", "ADMIN"]),
+  // NOTE: this route's workspace id param is named "id", not "workspaceId"
+  // (unlike every nested resource route below it), so the param name must
+  // be passed explicitly or every request here would 403.
+  requireWorkspaceRole(["OWNER", "ADMIN"], "id"),
   asyncHandler(workspaceController.updateWorkspace),
 );
 
 workspaceRouter.delete(
   "/:id",
   authenticate,
-  requireWorkspaceRole(["OWNER", "ADMIN"]),
+  requireWorkspaceRole(["OWNER", "ADMIN"], "id"),
   asyncHandler(workspaceController.deleteWorkspace),
 );
 

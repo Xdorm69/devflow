@@ -48,6 +48,25 @@ class UserRepository {
       },
     });
   }
+<<<<<<< HEAD
+=======
+
+  /**
+   * Case-insensitive prefix search over username/email, used when inviting
+   * members to a workspace. Capped at `limit` results.
+   */
+  async search(query: string, limit: number = 10) {
+    return await prisma.user.findMany({
+      where: {
+        OR: [
+          { username: { contains: query } },
+          { email: { contains: query } },
+        ],
+      },
+      take: limit,
+    });
+  }
+>>>>>>> crud-complete
 }
 
 export default UserRepository;

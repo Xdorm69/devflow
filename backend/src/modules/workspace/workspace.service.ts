@@ -11,7 +11,7 @@ export class WorkspaceService {
     this.workspaceRepository = workspaceRepository;
   }
 
-  async createWorkspace(data: CreateWorkspaceInput): Promise<{workspace: Workspace}> {
+  async createWorkspace(data: CreateWorkspaceInput, ownerId: string): Promise<{workspace: Workspace}> {
     // verify if either same workspace already exists
     const workspaceBySlug = await this.workspaceRepository.findBySlug(data.slug);
 
@@ -20,7 +20,7 @@ export class WorkspaceService {
     }
 
     // validation is already done in 
-    const workspace = await this.workspaceRepository.create(data);
+    const workspace = await this.workspaceRepository.create(data, ownerId);
     return {workspace};
   }
 

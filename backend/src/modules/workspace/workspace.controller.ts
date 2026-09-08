@@ -8,13 +8,14 @@ import {
 
 export class WorkspaceController {
   private workspaceService: WorkspaceService;
+  
   constructor(workspaceService: WorkspaceService = new WorkspaceService()) {
     this.workspaceService = workspaceService;
   }
 
   createWorkspace = async (req: Request, res: Response) => {
     const data: CreateWorkspaceInput = req.body;
-    const { workspace } = await this.workspaceService.createWorkspace(data);
+    const { workspace } = await this.workspaceService.createWorkspace(data, req.user!.id);
     return res
       .status(201)
       .json(
